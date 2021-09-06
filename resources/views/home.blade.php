@@ -3,11 +3,11 @@
 @section('content')
 
 
-    <div>
+    <div class="table-responsive fulltable">
 
 
 
-            <table class="table">
+            <table class="tableresult table table-striped table-hover">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -18,12 +18,13 @@
                 </thead>
 
                 <tbody>
-
+                    
                     @foreach ($driversSeasons as $item)
-                        <tr>
+                        <tr class="table-clasificacion">
                             <th scope="row">{{ $item->id }}</th>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->points }}</td>
+                            <td >{{ $item->name }}</td>
+                            <th scope="row">{{ $item->points }}</td>
+                                <td ><button>Edit</button></td>    
                         </tr>
                     @endforeach
                 </tbody>

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [DriversSeasonController::class, 'index']);
+Route::get('/edit/{id}', [DriversSeasonController::class, 'edit']);
 
 
 /* Auth::routes();
