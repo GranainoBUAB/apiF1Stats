@@ -10004,7 +10004,7 @@ h3 {
   }
 }
 .table-clasificacion {
-  height: auto;
+  padding: 1px !important;
   font-size: 12px;
 }
 

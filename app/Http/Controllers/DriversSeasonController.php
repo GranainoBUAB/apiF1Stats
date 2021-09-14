@@ -18,7 +18,7 @@ class DriversSeasonController extends Controller
      */
     public function index()
     {
-        $driversSeasons = DriversSeason::all();
+        $driversSeasons = DriversSeason::orderBy('points','desc')->get();
         return view('home', compact('driversSeasons'));
 
     }

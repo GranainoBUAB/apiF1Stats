@@ -18,13 +18,13 @@
                 </thead>
 
                 <tbody>
-                    
+
                     @foreach ($driversSeasons as $item)
-                        <tr class="table-clasificacion">
-                            <th scope="row">{{ $item->id }}</th>
-                            <td >{{ $item->name }}</td>
-                            <th scope="row">{{ $item->points }}</td>
-                                <td ><button>Edit</button></td>    
+                        <tr>
+                            <th scope="row" class="table-clasificacion">{{ $item->id }}</th>
+                            <td class="table-clasificacion">{{ $item->name }}</td>
+                            <th scope="row" class="table-clasificacion">{{ number_format($item->points, 1) }}</td>
+                            {{-- <td ><button>Edit</button></td> --}}
                         </tr>
                     @endforeach
                 </tbody>
