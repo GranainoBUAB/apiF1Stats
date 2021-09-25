@@ -73,7 +73,7 @@ class DriversSeasonController extends Controller
     {
         $driversSeason = DriversSeason::find($id);
 
-        return view('drivers-season.edit', compact('driversSeason'));
+        return view('edit', compact('driversSeason'));
     }
 
     /**
@@ -83,14 +83,18 @@ class DriversSeasonController extends Controller
      * @param  DriversSeason $driversSeason
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DriversSeason $driversSeason)
+    public function update(Request $request, $id)
     {
-        request()->validate(DriversSeason::$rules);
+/*         request()->validate(DriversSeason::$rules);
 
         $driversSeason->update($request->all());
 
         return redirect()->route('drivers-seasons.index')
-            ->with('success', 'DriversSeason updated successfully');
+            ->with('success', 'DriversSeason updated successfully'); */
+            $changesProduct = request()->except(['_token', '_method']);
+            DriversSeason::where('id', '=', $id)->update($changesProduct);
+            $driverSeason = DriversSeason::findOrFail($id);
+            return redirect()->route('home')->with('success', 'Updated');
     }
 
     /**

@@ -14,11 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DriversSeasonController::class, 'index']);
-Route::get('/edit/{id}', [DriversSeasonController::class, 'edit']);
+Route::get('/', [DriversSeasonController::class, 'index'])->name('home');
+Route::get('/edit/{id}', [DriversSeasonController::class, 'edit'])->name('edit');
+Route::patch('/update/{id}', [DriversSeasonController::class, 'update'])->name('update');
 
 
-/* Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
- */
