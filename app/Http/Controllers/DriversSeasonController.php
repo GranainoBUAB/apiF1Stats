@@ -18,9 +18,13 @@ class DriversSeasonController extends Controller
      */
     public function index()
     {
-        $driversSeasons = DriversSeason::orderBy('points','desc')->get();
+        $driversSeasons = DriversSeason::orderBy('points', 'desc')->get();
+        $position = 0;
+        foreach ($driversSeasons as $item) {
+            $position += 1;
+            $item->position = $position;
+        }
         return view('home', compact('driversSeasons'));
-
     }
 
     /**
@@ -32,6 +36,10 @@ class DriversSeasonController extends Controller
     {
         $driversSeason = new DriversSeason();
         return view('drivers-season.create', compact('driversSeason'));
+
+        $categoryMains = CategoryMain::all();
+        $categorySecondaries = CategorySecondary::all();
+        return view('create', compact('categoryMains', 'categorySecondaries'));
     }
 
     /**
@@ -46,7 +54,7 @@ class DriversSeasonController extends Controller
 
         $driversSeason = DriversSeason::create($request->all());
 
-        return redirect()->route('drivers-seasons.index')
+        return redirect()->route('home')
             ->with('success', 'DriversSeason created successfully.');
     }
 
@@ -85,16 +93,10 @@ class DriversSeasonController extends Controller
      */
     public function update(Request $request, $id)
     {
-/*         request()->validate(DriversSeason::$rules);
-
-        $driversSeason->update($request->all());
-
-        return redirect()->route('drivers-seasons.index')
-            ->with('success', 'DriversSeason updated successfully'); */
-            $changesProduct = request()->except(['_token', '_method']);
-            DriversSeason::where('id', '=', $id)->update($changesProduct);
-            $driverSeason = DriversSeason::findOrFail($id);
-            return redirect()->route('home')->with('success', 'Updated');
+        $changesProduct = request()->except(['_token', '_method']);
+        DriversSeason::where('id', '=', $id)->update($changesProduct);
+        $driverSeason = DriversSeason::findOrFail($id);
+        return redirect()->route('home')->with('success', 'Updated');
     }
 
     /**

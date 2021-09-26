@@ -16,6 +16,11 @@ class DriversSeasonController extends Controller
     public function index()
     {
         $driversSeasons = DriversSeason::all();
+        $position = 0;
+        foreach ($driversSeasons as $item) {
+            $position += 1;
+            $item->position = $position;
+        }
         return response()->json($driversSeasons, 200);
     }
 

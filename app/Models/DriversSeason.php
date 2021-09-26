@@ -10,6 +10,8 @@ class DriversSeason extends Model
     use HasFactory;
 
     protected $fillable = [
+        'position',
+        'country',
         'name',
         'points'
     ];
