@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Flag extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'country',
+        'flag',
+    ];
 }
