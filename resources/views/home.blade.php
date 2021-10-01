@@ -2,10 +2,15 @@
 
 @section('content')
     <div class="table-responsive fulltable">
+        <div>
+        Clasificacion Pilotos 2021
+        </div>
+        <div>
             <table class="tableresult table table-striped table-hover">
                 <thead>
+                    
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">#</th><
                         <th scope="col"></th>
                         <th scope="col">Drivers</th>
                         <th scope="col">Points</th>
@@ -24,5 +29,6 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
     </div>
 @endsection

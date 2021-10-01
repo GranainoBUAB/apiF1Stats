@@ -1,6 +1,7 @@
 .table-clasificacion {
     padding: 1px!important;
     font-size: 12px;
+
 }
 
 .tableresult{
@@ -9,5 +10,9 @@
 
 .fulltable{
     display : flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    
+    
 }
