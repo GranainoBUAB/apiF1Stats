@@ -23,7 +23,7 @@
                             <th scope="row" class="table-clasificacion" ><img src="{{$item->country}}" width="17px"></th>
                             <td class="table-clasificacion">{{ $item->name }}</td>
                             <th scope="row" class="table-clasificacion">{{ number_format($item->points, 1) }}</td>
-                            <th scope="row" class="table-clasificacion"><a href="{{ route('edit', ['id'=>$item->id]) }}">✏️</a></td>
+                            <th scope="row" class="table-clasificacion"><a href="{{ route('edit_drivers_season', ['id'=>$item->id]) }}">✏️</a></td>
                         </tr>
                     @endforeach
                 </tbody>

@@ -13,4 +13,10 @@ class Flag extends Model
         'country',
         'flag',
     ];
+
+    static function getAllFlags()
+    {
+        $flags = Flag::all();
+        return ($flags);
+    }
 }

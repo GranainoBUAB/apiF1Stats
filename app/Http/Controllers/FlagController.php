@@ -14,7 +14,7 @@ class FlagController extends Controller
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -82,4 +82,6 @@ class FlagController extends Controller
     {
         //
     }
+
+
 }

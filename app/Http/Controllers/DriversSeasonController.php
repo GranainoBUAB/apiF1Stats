@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DriversSeason;
+use App\Models\Flag;
 use Illuminate\Http\Request;
 
 /**
@@ -19,11 +20,23 @@ class DriversSeasonController extends Controller
     public function index()
     {
         $driversSeasons = DriversSeason::orderBy('points', 'desc')->get();
+
         $position = 0;
         foreach ($driversSeasons as $item) {
             $position += 1;
             $item->position = $position;
         }
+
+        $flags = Flag::getAllFlags();
+        foreach ($driversSeasons as $item) {
+            foreach ($flags as $itemFlag) {
+                if ($item->country === $itemFlag->country){
+                    $item->country = $itemFlag->flag;
+                }
+            }
+        }
+
+
         return view('home', compact('driversSeasons'));
     }
 
@@ -81,7 +94,7 @@ class DriversSeasonController extends Controller
     {
         $driversSeason = DriversSeason::find($id);
 
-        return view('edit', compact('driversSeason'));
+        return view('drivers_season.edit', compact('driversSeason'));
     }
 
     /**
