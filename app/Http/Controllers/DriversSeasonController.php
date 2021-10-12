@@ -21,11 +21,13 @@ class DriversSeasonController extends Controller
     {
         $driversSeasons = DriversSeason::orderBy('points', 'desc')->get();
 
-        $position = 0;
+        /* $position = 0;
         foreach ($driversSeasons as $item) {
             $position += 1;
             $item->position = $position;
-        }
+        } */
+
+        $driversSeasons = DriversSeason::positionOrder($driversSeasons);
 
         $flags = Flag::getAllFlags();
         foreach ($driversSeasons as $item) {
@@ -49,10 +51,6 @@ class DriversSeasonController extends Controller
     {
         $driversSeason = new DriversSeason();
         return view('drivers-season.create', compact('driversSeason'));
-
-        $categoryMains = CategoryMain::all();
-        $categorySecondaries = CategorySecondary::all();
-        return view('create', compact('categoryMains', 'categorySecondaries'));
     }
 
     /**

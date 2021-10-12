@@ -15,4 +15,14 @@ class DriversSeason extends Model
         'name',
         'points'
     ];
+
+    static function positionOrder($driversSeasons){
+
+        $position = 0;
+        foreach ($driversSeasons as $item) {
+            $position += 1;
+            $item->position = $position;
+        }
+        return($driversSeasons);
+    }
 }

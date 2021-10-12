@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use App\Models\DriversSeason;
+use App\Models\Flag;
 use Illuminate\Http\Request;
+use App\Models\DriversSeason;
+use App\Http\Controllers\Controller;
 
 class DriversSeasonController extends Controller
 {
@@ -20,6 +21,14 @@ class DriversSeasonController extends Controller
         foreach ($driversSeasons as $item) {
             $position += 1;
             $item->position = $position;
+        }
+        $flags = Flag::getAllFlags();
+        foreach ($driversSeasons as $item) {
+            foreach ($flags as $itemFlag) {
+                if ($item->country === $itemFlag->country){
+                    $item->country = $itemFlag->flag;
+                }
+            }
         }
         return response()->json($driversSeasons, 200);
     }
