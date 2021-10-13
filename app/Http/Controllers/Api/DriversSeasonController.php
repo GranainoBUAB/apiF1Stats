@@ -16,12 +16,11 @@ class DriversSeasonController extends Controller
      */
     public function index()
     {
-        $driversSeasons = DriversSeason::all();
-        $position = 0;
-        foreach ($driversSeasons as $item) {
-            $position += 1;
-            $item->position = $position;
-        }
+        $driversSeasons = DriversSeason::orderBy('points', 'desc')->get();
+
+        $driversSeasons = DriversSeason::positionOrder($driversSeasons);
+
+        //smell code change with create new Drivers
         $flags = Flag::getAllFlags();
         foreach ($driversSeasons as $item) {
             foreach ($flags as $itemFlag) {

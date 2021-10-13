@@ -21,14 +21,9 @@ class DriversSeasonController extends Controller
     {
         $driversSeasons = DriversSeason::orderBy('points', 'desc')->get();
 
-        /* $position = 0;
-        foreach ($driversSeasons as $item) {
-            $position += 1;
-            $item->position = $position;
-        } */
-
         $driversSeasons = DriversSeason::positionOrder($driversSeasons);
 
+        //smell code change with create new Drivers
         $flags = Flag::getAllFlags();
         foreach ($driversSeasons as $item) {
             foreach ($flags as $itemFlag) {
