@@ -17,7 +17,6 @@ class DriversSeasonController extends Controller
     public function index()
     {
         $driversSeasons = DriversSeason::orderBy('points', 'desc')->get();
-
         $driversSeasons = DriversSeason::positionOrder($driversSeasons);
 
         //smell code change with create new Drivers
@@ -29,6 +28,7 @@ class DriversSeasonController extends Controller
                 }
             }
         }
+        
         return response()->json($driversSeasons, 200);
     }
 

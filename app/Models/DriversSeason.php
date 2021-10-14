@@ -16,13 +16,13 @@ class DriversSeason extends Model
         'points'
     ];
 
-    static function positionOrder($driversSeasons){
+    static function positionOrder($drivers){
 
         $position = 0;
-        foreach ($driversSeasons as $item) {
+        foreach ($drivers as $item) {
             $position += 1;
             $item->position = $position;
         }
-        return($driversSeasons);
+        return($drivers);
     }
 }

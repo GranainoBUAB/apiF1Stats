@@ -56,8 +56,6 @@ class DriversSeasonController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(DriversSeason::$rules);
-
         $driversSeason = DriversSeason::create($request->all());
 
         return redirect()->route('home')
