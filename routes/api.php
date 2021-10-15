@@ -21,3 +21,4 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/drivers_seasons',[DriversSeasonController::class,'index']);
+Route::get('/constructors_seasons',[DriversSeasonController::class,'index']);
