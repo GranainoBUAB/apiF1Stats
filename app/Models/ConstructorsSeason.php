@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class ConstructorsSeason extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'position',
+        'name',
+        'points'
+    ];
 }

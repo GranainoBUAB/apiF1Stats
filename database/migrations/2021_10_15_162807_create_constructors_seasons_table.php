@@ -15,6 +15,9 @@ class CreateConstructorsSeasonsTable extends Migration
     {
         Schema::create('constructors_seasons', function (Blueprint $table) {
             $table->id();
+            $table->integer('position');
+            $table->string('name');
+            $table->decimal('points',8,1);
             $table->timestamps();
         });
     }
