@@ -15,7 +15,7 @@ class DriversSeason extends Model
         'name',
         'points'
     ];
-
+/*
     static function positionOrder($drivers){
 
         $position = 0;
@@ -24,5 +24,5 @@ class DriversSeason extends Model
             $item->position = $position;
         }
         return($drivers);
-    }
+    } */
 }

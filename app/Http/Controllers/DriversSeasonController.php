@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DriversSeason;
 use App\Models\Flag;
+use App\Models\PositionOrder;
 use Illuminate\Http\Request;
 
 /**
@@ -20,8 +21,7 @@ class DriversSeasonController extends Controller
     public function index()
     {
         $driversSeasons = DriversSeason::orderBy('points', 'desc')->get();
-
-        $driversSeasons = DriversSeason::positionOrder($driversSeasons);
+        $driversSeasons = PositionOrder::positionOrder($driversSeasons);
 
         //smell code change with create new Drivers
         $flags = Flag::getAllFlags();
