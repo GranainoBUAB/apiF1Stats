@@ -27,12 +27,11 @@ class DriversSeasonController extends Controller
         $flags = Flag::getAllFlags();
         foreach ($driversSeasons as $item) {
             foreach ($flags as $itemFlag) {
-                if ($item->country === $itemFlag->country){
+                if ($item->country === $itemFlag->country) {
                     $item->country = $itemFlag->flag;
                 }
             }
         }
-
 
         return view('home', compact('driversSeasons'));
     }
@@ -70,9 +69,6 @@ class DriversSeasonController extends Controller
      */
     public function show($id)
     {
-        $driversSeason = DriversSeason::find($id);
-
-        return view('drivers-season.show', compact('driversSeason'));
     }
 
     /**
@@ -110,9 +106,9 @@ class DriversSeasonController extends Controller
      */
     public function destroy($id)
     {
-        $driversSeason = DriversSeason::find($id)->delete();
+        DriversSeason::destroy($id);
 
-        return redirect()->route('drivers-seasons.index')
+        return redirect()->route('home')
             ->with('success', 'DriversSeason deleted successfully');
     }
 }

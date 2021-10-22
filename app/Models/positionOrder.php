@@ -9,17 +9,8 @@ class PositionOrder extends Model
 {
     use HasFactory;
 
-/*     function __construct($table)
+    static function positionOrder($table)
     {
-        $position = 0;
-        foreach ($table as $item) {
-            $position += 1;
-            $item->position = $position;
-        }
-        return ($table);
-    } */
-
-    static function positionOrder($table){
         $position = 0;
         foreach ($table as $item) {
             $position += 1;

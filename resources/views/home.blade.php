@@ -24,6 +24,7 @@
                             <td class="table-clasificacion">{{ $item->name }}</td>
                             <th scope="row" class="table-clasificacion">{{ number_format($item->points, 1) }}</td>
                             <th scope="row" class="table-clasificacion"><a href="{{ route('edit_drivers_season', ['id'=>$item->id]) }}">✏️</a></td>
+                            <th scope="row" class="table-clasificacion"><a href="{{ route('delete_drivers_season', ['id'=>$item->id]) }}">🗑️</a></td>
                         </tr>
                     @endforeach
                 </tbody>
