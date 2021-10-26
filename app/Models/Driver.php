@@ -13,5 +13,6 @@ class Driver extends Model
         'name',
         'country',
         'foto',
+        'isActive',
     ];
 }

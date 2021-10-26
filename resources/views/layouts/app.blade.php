@@ -95,10 +95,10 @@
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Drivers Season</a>
+                            <a class="nav-link" href="#">Drivers Standing</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Constructors Season</a>
+                            <a class="nav-link" href="#">Constructors Standing</a>
                         </li>
                     </ul>
                 </div>
