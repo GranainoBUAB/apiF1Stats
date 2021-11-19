@@ -7,6 +7,7 @@ una Api que podras recibir en formato Json estadisticas de todos los pilotos de 
 
 #En Curso
 - calificacion de la temporada acutal de pilotos
+- calificacion de la temporada acutal de constructores
 
 
 #Previsto
